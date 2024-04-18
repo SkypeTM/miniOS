@@ -3,9 +3,14 @@
 #include <string.h>
 #include <readline/readline.h>
 #include <readline/history.h>
+#include <sys/types.h>
 
 #include "system.h"
+#include "20192594/myfork.h"
+#include "20192594/myipc.h"
+
 void print_minios(char* str);
+void myID();
 
 int main() {
     print_minios("[MiniOS SSU] Hello, World!");
@@ -19,9 +24,21 @@ int main() {
         if (strcmp(input,"exit") == 0) {
             break;
         }
-
+        
         if (strcmp(input,"minisystem") == 0){
             minisystem();
+        }
+
+        else if (strcmp(input, "myID") == 0){
+            myID();
+        }
+        
+        else if (strcmp(input, "myFork") == 0){
+            myFork();
+        }
+       
+        else if (strcmp(input, "myIPC") == 0){
+            myIPC();
         }
         else system(input);
     }
@@ -36,3 +53,8 @@ int main() {
 void print_minios(char* str) {
         printf("%s\n",str);
 }
+
+void myID(){
+    printf("ID: 20192594\nName: Park Taeseong\n");
+}
+
